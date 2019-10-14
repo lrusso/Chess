@@ -7,3 +7,7 @@ Chess game developed in JavaScript.
 ## Web:
 
 https://lrusso.github.io/JavaScriptChess/JavaScriptChess.htm
+
+## Based on the work of:
+
+https://codepen.io/deinman/pen/OpdVaL
