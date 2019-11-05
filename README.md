@@ -4,6 +4,7 @@ Chess game developed in JavaScript.
 
 ![alt screenshot](https://raw.githubusercontent.com/lrusso/JavaScriptChess/master/JavaScriptChess.png)
 
+
 ## Web:
 
 https://lrusso.github.io/JavaScriptChess/JavaScriptChess.htm
