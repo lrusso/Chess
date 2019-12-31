@@ -1749,9 +1749,17 @@ var makeBestMove = function ()
         var bestMove = getBestMove(game);
         game.ugly_move(bestMove);
         board.position(game.fen());
-        if (game.game_over())
+        if (game.in_check())
             {
-            showGameOver();
+            showLabel("CHECK");
+            }
+        else if (game.game_over())
+            {
+            showLabel("GAME OVER");
+            }
+        else
+            {
+            showLabel("HIDE");
             }
         }
         catch(err)
@@ -1762,9 +1770,9 @@ var makeBestMove = function ()
 var getBestMove = function (game)
     {
     if (game.game_over())
-        {
-        showGameOver();
-        }
+       {
+       showLabel("GAME OVER");
+       }
     var bestMove = calculateBestMove(game);
     return bestMove;
     };
