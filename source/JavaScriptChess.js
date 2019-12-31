@@ -1680,6 +1680,16 @@ var calculateBestMove = function (game)
 
 var onDragStart = function (source, piece, position, orientation)
     {
+    var moves = game.moves({square:source,verbose:true});
+
+    greySquare(source);
+
+    for (var i = 0; i < moves.length; i++)
+        {
+        greySquare(moves[i].to);
+        }
+
+
     if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1)
         {
         return false;
@@ -1764,7 +1774,5 @@ var boardcfg = {draggable:true,
                 position:"start",
                 onDragStart:onDragStart,
                 onDrop:onDrop,
-                //onMouseoutSquare:onMouseoutSquare,
-                //onMouseoverSquare:onMouseoverSquare,
                 onSnapEnd:onSnapEnd,
                 showNotation:false};
