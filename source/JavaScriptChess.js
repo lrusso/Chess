@@ -1749,18 +1749,27 @@ var makeBestMove = function ()
         var bestMove = getBestMove(game);
         game.ugly_move(bestMove);
         board.position(game.fen());
-        if (game.in_check())
+
+        if (game.game_over())
+            {
+            if (game.turn()=="b")
+                {
+                showLabel("HUMAN WINS");
+                }
+                else
+                {
+                showLabel("AI WINS");
+                }
+            }
+        else if (game.in_check())
             {
             showLabel("CHECK");
-            }
-        else if (game.game_over())
-            {
-            showLabel("GAME OVER");
             }
         else
             {
             showLabel("HIDE");
             }
+
         }
         catch(err)
         {
@@ -1769,10 +1778,27 @@ var makeBestMove = function ()
 
 var getBestMove = function (game)
     {
+
     if (game.game_over())
-       {
-       showLabel("GAME OVER");
-       }
+        {
+        if (game.turn()=="b")
+            {
+            showLabel("HUMAN WINS");
+            }
+            else
+            {
+            showLabel("AI WINS");
+            }
+        }
+    else if (game.in_check())
+        {
+        showLabel("CHECK");
+        }
+    else
+        {
+        showLabel("HIDE");
+        }
+
     var bestMove = calculateBestMove(game);
     return bestMove;
     };
