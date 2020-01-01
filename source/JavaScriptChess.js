@@ -33,9 +33,12 @@
  * https://github.com/jhlywa/chess.js/blob/master/LICENSE
  */
 
+var thinking = false;
+
 var Chess = function(fen) {
 
     /* jshint indent: false */
+
 
     var BLACK = 'b';
     var WHITE = 'w';
@@ -1680,7 +1683,7 @@ var calculateBestMove = function (game)
 
 var onDragStart = function (source, piece, position, orientation)
     {
-    if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1)
+    if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1 || thinking===true)
         {
         return false;
         }
@@ -1699,6 +1702,7 @@ var onDrop = function (source, target)
     {
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
+    thinking = true;
     window.setTimeout(makeBestMove, 250);
     };
 
@@ -1774,6 +1778,8 @@ var makeBestMove = function ()
         catch(err)
         {
         }
+
+    thinking = false;
     };
 
 var getBestMove = function (game)
