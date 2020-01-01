@@ -1780,7 +1780,7 @@ var makeBestMove = function ()
         {
         }
 
-    thinking = false;
+    setTimeout(function(){thinking=false;},250);
     };
 
 var getBestMove = function (game)
