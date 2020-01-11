@@ -1678,7 +1678,29 @@ if (typeof define !== 'undefined') define( function () { return Chess;  });
 var calculateBestMove = function (game)
     {
     var newGameMoves = game.ugly_moves();
-    return newGameMoves[Math.floor(Math.random() * newGameMoves.length)];
+    var newGameMovesAttacks = [];
+
+    for (var i=0;i<newGameMoves.length;i++)
+        {
+        var pieceDestiny = newGameMoves[i].captured;
+        if (!(pieceDestiny === undefined || pieceDestiny === null))
+            {
+            newGameMovesAttacks.push(newGameMoves[i]);
+            }
+        }
+
+    var randomMove;
+    var attackPossiblity = Math.random() * 100;
+    if (newGameMovesAttacks.length>0 && attackPossiblity<=80) // 80 percent possibility to attack
+        {
+        randomMove = newGameMovesAttacks[Math.floor(Math.random() * newGameMovesAttacks.length)];
+        }
+        else
+        {
+        randomMove = newGameMoves[Math.floor(Math.random() * newGameMoves.length)];
+        }
+
+    return randomMove;
     };
 
 var onDragStart = function (source, piece, position, orientation)
