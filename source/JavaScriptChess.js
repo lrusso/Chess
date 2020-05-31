@@ -36,6 +36,7 @@
 var STRING_CHECK;
 var STRING_AIWINS;
 var STRING_HUMANWINS;
+var STRING_THINKING;
 var STRING_ABOUT;
 
 var userLanguage = window.navigator.userLanguage || window.navigator.language;
@@ -45,6 +46,7 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_CHECK = "JAQUE";
 	STRING_AIWINS = "CPU GANA";
 	STRING_HUMANWINS = "HUMANO GANA";
+	STRING_THINKING = "PENSANDO...";
 	STRING_ABOUT = "Dise&ntilde;ado por www.lrusso.com";
 	}
 	else
@@ -52,7 +54,21 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_CHECK = "CHECK";
 	STRING_AIWINS = "AI WINS";
 	STRING_HUMANWINS = "HUMAN WINS";
+	STRING_THINKING = "THINKING...";
 	STRING_ABOUT = "Designed by www.lrusso.com";
+	}
+
+function showLabel(myTempTitle)
+	{
+	if (myTempTitle=="HIDE")
+		{
+		document.getElementsByClassName("gui_title")[0].style.display = "none";
+		}
+		else
+		{
+		document.getElementsByClassName("gui_title_label")[0].innerHTML = myTempTitle;
+		document.getElementsByClassName("gui_title")[0].style.display = "block";
+		}
 	}
 
 var thinking = false;
@@ -1718,7 +1734,16 @@ var onDrop = function (source, target)
     {
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
-    setTimeout(function(){checkGameStatus();thinking=true;makeBestMove()},250);
+
+    document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#383838";
+    document.getElementsByClassName("gui_title_label")[0].innerHTML = STRING_THINKING;
+    document.getElementsByClassName("gui_title")[0].style.display = "block";
+
+    setTimeout(function()
+        {
+        thinking=true;
+        makeBestMove()
+        },250);
     };
 
 var onSnapEnd = function ()
@@ -1768,6 +1793,8 @@ function checkGameStatus()
         {
         if (game.game_over())
             {
+            document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#b9180b";
+
             if (game.turn()=="b")
                 {
                 showLabel(STRING_HUMANWINS);
@@ -1779,6 +1806,7 @@ function checkGameStatus()
             }
         else if (game.in_check())
             {
+            document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#b9180b";
             showLabel(STRING_CHECK);
             }
         else
@@ -1792,7 +1820,7 @@ var makeBestMove = function ()
     {
     positionCount = 0;
 
-    var gameDifficulty = 2;
+    var gameDifficulty = 3;
 
     minimaxRoot(gameDifficulty, game, true);
     };
