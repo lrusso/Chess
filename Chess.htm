@@ -30,7 +30,7 @@
 			.alpha-d2270{bottom:1px;right:3px}
 			.numeric-fc462{top:2px;left:2px}
 
-			.aboutcontainer{position:fixed;left:0;right:0;bottom:0;width:375px;margin:0 auto;text-align:center;z-index:999;cursor:default;margin-bottom:20px;padding:10px;border-radius:10px;text-shadow: 0 0 3px #000000,0 0 7px #000000;font-family:Arial;font-size:25px;font-weight:bold;color:white;background-color:rgba(0,0,0,0.5)}
+			.aboutcontainer{position:absolute;left:50%;transform:translateX(-50%);display:inline-block;bottom:0;text-align:center;z-index:999;cursor:default;margin-bottom:20px;padding:10px;border-radius:10px;text-shadow: 0 0 3px #000000,0 0 7px #000000;font-family:Arial;font-size:25px;font-weight:bold;color:white;background-color:rgba(0,0,0,0.5)}
 			.abouthidden{animation:fadeOut 1.5s;animation-fill-mode:forwards}
 			@keyframes fadeOut{0%{opacity:1}99%{opacity:0.01}100%{opacity:0}}
 
@@ -110,7 +110,7 @@
 
 			window.addEventListener("load", function()
 				{
-				document.getElementsByClassName("gui_reload")[0].addEventListener("click",function(event){startNewGame();});
+				document.getElementsByClassName("gui_reload")[0].addEventListener("click",function(event){startNewGame()});
 
 				setTimeout(function()
 					{
