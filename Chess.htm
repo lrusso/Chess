@@ -72,9 +72,12 @@
 
 			function startNewGame()
 				{
-				document.getElementsByClassName("gui_title")[0].style.display = "none";
-				game = new Chess();
-				board = ChessBoard("board",boardcfg);
+				if (thinking==false)
+					{
+					document.getElementsByClassName("gui_title")[0].style.display = "none";
+					game = new Chess();
+					board = ChessBoard("board",boardcfg);
+					}
 				}
 
 			function resizeBoard()
