@@ -33,6 +33,7 @@
  * https://github.com/jhlywa/chess.js/blob/master/LICENSE
  */
 
+var STRING_TITLE;
 var STRING_CHECK;
 var STRING_AIWINS;
 var STRING_HUMANWINS;
@@ -43,6 +44,7 @@ var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
 if (userLanguage.substring(0,2)=="es")
 	{
+	STRING_TITLE = "Ajedrez";
 	STRING_CHECK = "JAQUE";
 	STRING_AIWINS = "CPU GANA";
 	STRING_HUMANWINS = "HUMANO GANA";
@@ -51,6 +53,7 @@ if (userLanguage.substring(0,2)=="es")
 	}
 	else
 	{
+	STRING_TITLE = "Chess";
 	STRING_CHECK = "CHECK";
 	STRING_AIWINS = "AI WINS";
 	STRING_HUMANWINS = "HUMAN WINS";
