@@ -261,7 +261,7 @@ var Chess = function(fen) {
     }
 
     /* TODO: this function is pretty much crap - it validates structure but
-     * completely ignores content (e.g. doesn"t verify that each side has a king)
+     * completely ignores content (e.g. doesn't verify that each side has a king)
      * ... we should rewrite this, and ditch the silly error_number field while
      * we"re at it
      */
@@ -274,7 +274,7 @@ var Chess = function(fen) {
             4: "4th field (en-passant square) is invalid.",
             5: "3rd field (castling availability) is invalid.",
             6: "2nd field (side to move) is invalid.",
-            7: "1st field (piece positions) does not contain 8 \"/\"-delimited rows.",
+            7: "1st field (piece positions) does not contain 8 \'/\'-delimited rows.",
             8: "1st field (piece positions) is invalid [consecutive numbers].",
             9: "1st field (piece positions) is invalid [invalid piece].",
             10: "1st field (piece positions) is invalid [row too large].",
@@ -349,7 +349,7 @@ var Chess = function(fen) {
             return {valid: false, error_number: 11, error: errors[11]};
         }
 
-        /* everything"s okay! */
+        /* everything's okay! */
         return {valid: true, error_number: 0, error: errors[0]};
     }
 
@@ -412,7 +412,7 @@ var Chess = function(fen) {
     /* called when the initial board setup is changed with put() or remove().
      * modifies the SetUp and FEN properties of the header object.  if the FEN is
      * equal to the default position, the SetUp and FEN are deleted
-     * the setup is only updated if history.length is zero, ie moves haven"t been
+     * the setup is only updated if history.length is zero, ie moves haven't been
      * made.
      */
     function update_setup(fen) {
@@ -450,7 +450,7 @@ var Chess = function(fen) {
 
         var sq = SQUARES[square];
 
-        /* don"t let the user place more than one king */
+        /* don't let the user place more than one king */
         if (piece.type == KING &&
             !(kings[piece.color] == EMPTY || kings[piece.color] == sq)) {
             return false;
@@ -1012,7 +1012,7 @@ var Chess = function(fen) {
             var ambig_to = moves[i].to;
             var ambig_piece = moves[i].piece;
 
-            /* if a move of the same piece type ends on the same to square, we"ll
+            /* if a move of the same piece type ends on the same to square, we will
              * need to add a disambiguator to the algebraic notation
              */
             if (piece === ambig_piece && from !== ambig_from && to === ambig_to) {
@@ -1085,7 +1085,7 @@ var Chess = function(fen) {
         // strip off any move decorations: e.g Nf3+?!
         var clean_move = stripped_san(move);
 
-        // if we"re using the sloppy parser run a regex to grab piece, to, and from
+        // if we are using the sloppy parser run a regex to grab piece, to, and from
         // this should parse invalid SAN like: Pe2-e4, Rc1c4, Qf3xf7
         if (sloppy) {
             var matches = clean_move.match(/([pnbrqkPNBRQK])?([a-h][1-8])x?-?([a-h][1-8])([qrbnQRBN])?/);
@@ -1355,7 +1355,7 @@ var Chess = function(fen) {
                 /* TODO: order of enumerated properties in header object is not
                  * guaranteed, see ECMA-262 spec (section 12.6.4)
                  */
-                result.push("[" + i + " \"" + header[i] + "\"]" + newline);
+                result.push('[' + i + ' \"' + header[i] + '\"]' + newline);
                 header_exists = true;
             }
 
@@ -1414,7 +1414,7 @@ var Chess = function(fen) {
                 /* if the current move will push past max_width */
                 if (current_width + moves[i].length > max_width && i !== 0) {
 
-                    /* don"t end the line with whitespace */
+                    /* don't end the line with whitespace */
                     if (result[result.length - 1] === " ") {
                         result.pop();
                     }
@@ -1531,7 +1531,7 @@ var Chess = function(fen) {
             for (var half_move = 0; half_move < moves.length - 1; half_move++) {
                 move = move_from_san(moves[half_move], sloppy);
 
-                /* move not possible! (don"t clear the board to examine to show the
+                /* move not possible! (don't clear the board to examine to show the
                  * latest valid position)
                  */
                 if (move == null) {
@@ -1611,7 +1611,7 @@ var Chess = function(fen) {
                 return null;
             }
 
-            /* need to make a copy of move because we can"t generate SAN after the
+            /* need to make a copy of move because we can't generate SAN after the
              * move is made
              */
             var pretty_move = make_pretty(move_obj);
