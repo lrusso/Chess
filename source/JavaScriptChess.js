@@ -349,7 +349,7 @@ var Chess = function(fen) {
             return {valid: false, error_number: 11, error: errors[11]};
         }
 
-        /* everything's okay! */
+        /* everything is okay! */
         return {valid: true, error_number: 0, error: errors[0]};
     }
 
