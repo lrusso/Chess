@@ -10,4 +10,4 @@ https://lrusso.github.io/Chess/Chess.htm
 
 ## Based on the work of:
 
-https://codepen.io/deinman/pen/OpdVaL
+https://jsfiddle.net/q76uzxwe/1/
