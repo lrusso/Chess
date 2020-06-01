@@ -1824,8 +1824,8 @@ var makeBestMove = function ()
     positionCount = 0;
     var gameDifficulty;
 
-    // using a random number to select the depth for the cpu next movement,
-    // in order to have different cpu movements for the same user movements.
+    // using a random number to select the depth for the cpu next movement
+    // in order to have different cpu movements for the same user movement.
     var randomValue = Math.floor(Math.random() * 10);
 
     if (randomValue>=5)
