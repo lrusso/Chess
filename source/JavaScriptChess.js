@@ -1738,7 +1738,7 @@ var onDrop = function (source, target)
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
 
-    document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#383838";
+    document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#484848";
     document.getElementsByClassName("gui_title_label")[0].innerHTML = STRING_THINKING;
     document.getElementsByClassName("gui_title")[0].style.display = "block";
 
