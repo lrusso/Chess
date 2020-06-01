@@ -59,7 +59,7 @@
 				}
 		</style>
 	</head>
-	<body oncontextmenu="return false;">
+	<body>
 		<div class="gui_title_margin"><div class="gui_title_container"><div class="gui_title"><span class="gui_title_label"></span></div></div></div>
 		<div class="gui_reload"><div class="gui_reload_icon"></div></div>
 		<div id="board" class="board"></div>
@@ -110,6 +110,11 @@
 					catch(err)
 					{
 					}
+				}
+
+			window.oncontextmenu = function()
+				{
+				return false;
 				}
 
 			window.addEventListener("resize", function()
