@@ -46,7 +46,7 @@ if (userLanguage.substring(0,2)=="es")
 	{
 	STRING_TITLE = "Ajedrez";
 	STRING_CHECK = "JAQUE";
-	STRING_AIWINS = "LA COMPUTADORA GAN&Oacute;";
+	STRING_AIWINS = "LA IA GAN&Oacute;";
 	STRING_HUMANWINS = "EL JUGADOR GAN&Oacute;";
 	STRING_THINKING = "PENSANDO...";
 	STRING_ABOUT = "Dise&ntilde;ado por www.lrusso.com";
