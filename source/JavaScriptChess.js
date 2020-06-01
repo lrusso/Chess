@@ -46,7 +46,7 @@ if (userLanguage.substring(0,2)=="es")
 	{
 	STRING_TITLE = "Ajedrez";
 	STRING_CHECK = "JAQUE";
-	STRING_AIWINS = "LA IA GAN&Oacute;";
+	STRING_AIWINS = "LA CPU GAN&Oacute;";
 	STRING_HUMANWINS = "EL JUGADOR GAN&Oacute;";
 	STRING_THINKING = "PENSANDO...";
 	STRING_ABOUT = "Dise&ntilde;ado por www.lrusso.com";
@@ -55,7 +55,7 @@ if (userLanguage.substring(0,2)=="es")
 	{
 	STRING_TITLE = "Chess";
 	STRING_CHECK = "CHECK";
-	STRING_AIWINS = "AI WINS";
+	STRING_AIWINS = "CPU WINS";
 	STRING_HUMANWINS = "HUMAN WINS";
 	STRING_THINKING = "THINKING...";
 	STRING_ABOUT = "Designed by www.lrusso.com";
@@ -1822,8 +1822,20 @@ function checkGameStatus()
 var makeBestMove = function ()
     {
     positionCount = 0;
+    var gameDifficulty;
 
-    var gameDifficulty = 3;
+    // using a random number to select the depth for the cpu next movement,
+    // in order to have different cpu movements for the same user movements.
+    var randomValue = Math.floor(Math.random() * 10);
+
+    if (randomValue>=5)
+        {
+        gameDifficulty = 4;
+        }
+        else
+        {
+        gameDifficulty = 3;
+        }
 
     minimaxRoot(gameDifficulty, game, true);
     };
