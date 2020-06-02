@@ -1822,20 +1822,8 @@ function checkGameStatus()
 var makeBestMove = function ()
     {
     positionCount = 0;
-    var gameDifficulty;
 
-    // using a random number to select the depth for the cpu next movement
-    // in order to have different cpu movements for the same user movement.
-    var randomValue = Math.floor(Math.random() * 10);
-
-    if (randomValue>=5)
-        {
-        gameDifficulty = 4;
-        }
-        else
-        {
-        gameDifficulty = 3;
-        }
+    var gameDifficulty = 3;
 
     minimaxRoot(gameDifficulty, game, true);
     };
