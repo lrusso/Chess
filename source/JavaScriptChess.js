@@ -1738,7 +1738,6 @@ var onDrop = function (source, target)
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
 
-    document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#484848";
     document.getElementsByClassName("gui_title_label")[0].innerHTML = STRING_THINKING;
     document.getElementsByClassName("gui_title")[0].style.display = "block";
 
@@ -1796,8 +1795,6 @@ function checkGameStatus()
         {
         if (game.game_over())
             {
-            document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#b9180b";
-
             if (game.turn()=="b")
                 {
                 showLabel(STRING_HUMANWINS);
@@ -1809,7 +1806,6 @@ function checkGameStatus()
             }
         else if (game.in_check())
             {
-            document.getElementsByClassName("gui_title_label")[0].style.backgroundColor = "#b9180b";
             showLabel(STRING_CHECK);
             }
         else
