@@ -2066,7 +2066,7 @@ var kingEvalBlack = reverseArray(kingEvalWhite);
 // BOARD CONFIGURATION
 // ------------------------------------------------------------------------
 
-var boardcfg = {draggable:true,
+var boardCfg = {draggable:true,
                 position:"start",
                 onDragStart:onDragStart,
                 onDrop:onDrop,
