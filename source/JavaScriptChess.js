@@ -65,12 +65,12 @@ function showLabel(myTempTitle)
 	{
 	if (myTempTitle=="HIDE")
 		{
-		document.getElementsByClassName("gui_title")[0].style.display = "none";
+		document.getElementsByClassName("gui_gamestatus")[0].style.display = "none";
 		}
 		else
 		{
-		document.getElementsByClassName("gui_title_label")[0].innerHTML = myTempTitle;
-		document.getElementsByClassName("gui_title")[0].style.display = "block";
+		document.getElementsByClassName("gui_gamestatus_label")[0].innerHTML = myTempTitle;
+		document.getElementsByClassName("gui_gamestatus")[0].style.display = "block";
 		}
 	}
 
@@ -1738,8 +1738,8 @@ var onDrop = function (source, target)
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
 
-    document.getElementsByClassName("gui_title_label")[0].innerHTML = STRING_THINKING;
-    document.getElementsByClassName("gui_title")[0].style.display = "block";
+    document.getElementsByClassName("gui_gamestatus_label")[0].innerHTML = STRING_THINKING;
+    document.getElementsByClassName("gui_gamestatus")[0].style.display = "block";
 
     setTimeout(function()
         {
