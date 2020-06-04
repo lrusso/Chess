@@ -1818,8 +1818,17 @@ function checkGameStatus()
 var makeBestMove = function ()
     {
     positionCount = 0;
+    var gameDifficulty;
 
-    var gameDifficulty = 3;
+    var randomValue = Math.floor(Math.random() * 10);
+    if (randomValue>=5)
+        {
+        gameDifficulty = 3;
+        }
+        else
+        {
+        gameDifficulty = 2;
+        }
 
     minimaxRoot(gameDifficulty, game, true);
     };
