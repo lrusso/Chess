@@ -1622,6 +1622,7 @@
     function mousedownSquare (evt) {
       // do nothing if we're not draggable
       if (!config.draggable) return
+      if (thinking==true) return
 
       // do nothing if there is no piece on this square
       var square = $(this).attr('data-square')
@@ -1634,6 +1635,7 @@
     function touchstartSquare (e) {
       // do nothing if we're not draggable
       if (!config.draggable) return
+      if (thinking==true) return
 
       // do nothing if there is no piece on this square
       var square = $(this).attr('data-square')
@@ -1684,6 +1686,7 @@
     function touchmoveWindow (evt) {
       // do nothing if we are not dragging a piece
       if (!isDragging) return
+      if (thinking==true) return
 
       // prevent screen from scrolling
       evt.preventDefault()
@@ -1697,6 +1700,7 @@
     function mouseupWindow (evt) {
       // do nothing if we are not dragging a piece
       if (!isDragging) return
+      if (thinking==true) return
 
       // get the location
       var location = isXYOnSquare(evt.pageX, evt.pageY)
@@ -1707,6 +1711,7 @@
     function touchendWindow (evt) {
       // do nothing if we are not dragging a piece
       if (!isDragging) return
+      if (thinking==true) return
 
       // get the location
       var location = isXYOnSquare(evt.originalEvent.changedTouches[0].pageX,

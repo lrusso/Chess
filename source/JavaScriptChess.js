@@ -1718,23 +1718,28 @@ if (typeof define !== "undefined") define( function () { return Chess;  });
 
 var onDragStart = function (source, piece, position, orientation)
     {
-    if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1 || thinking===true)
+    if (thinking==false)
         {
-        return false;
-        }
+        if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1 || thinking===true)
+            {
+            return false;
+            }
 
-    var moves = game.moves({square:source,verbose:true});
+        var moves = game.moves({square:source,verbose:true});
 
-    //greySquare(source);
+        //greySquare(source);
 
-    for (var i = 0; i < moves.length; i++)
-        {
-        greySquare(moves[i].to);
+        for (var i = 0; i < moves.length; i++)
+            {
+            greySquare(moves[i].to);
+            }
         }
     };
 
 var onDrop = function (source, target)
     {
+    thinking=true;
+
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
 
@@ -1743,7 +1748,6 @@ var onDrop = function (source, target)
 
     setTimeout(function()
         {
-        thinking=true;
         makeBestMove()
         },250);
     };
