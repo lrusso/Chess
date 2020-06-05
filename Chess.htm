@@ -28,8 +28,8 @@
 
 			.gui_file{display:none}
 
-			.gui_gamestatus{position:fixed;padding-left:10px;padding-top:17px;display:none;z-index:999}
-			.gui_gamestatus_label{background-color:#025389;font-family:Arial;font-size:20px;text-align:center;padding:10px;color:white;line-height:1.6;border-radius:10px;border-bottom:2px solid black;border-right:2px solid black;text-shadow:0 0 3px #000000,0 0 7px #000000}
+			.gui_gamestatus{position:fixed;padding-left:9px;padding-top:12px;display:none;z-index:999}
+			.gui_gamestatus_label{display:inline-block;background-color:#025389;font-family:Arial;font-size:20px;text-align:center;padding:10px;color:white;border-radius:10px;border-bottom:2px solid black;border-right:2px solid black;text-shadow:0 0 3px #000000,0 0 7px #000000}
 
 			.board{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#404040;z-index:-9}
 			.clearfix-7da63{clear:both}
@@ -45,11 +45,6 @@
 			.aboutcontainer{position:fixed;left:50%;transform:translateX(-50%);white-space:nowrap;bottom:0;z-index:399;cursor:default;margin-bottom:20px;padding:10px;border-radius:10px;text-shadow: 0 0 3px #000000,0 0 7px #000000;font-family:Arial;font-size:25px;font-weight:bold;color:white;background-color:rgba(0,0,0,0.5);display:none}
 			.abouthidden{animation:fadeOut 1.5s;animation-fill-mode:forwards}
 			@keyframes fadeOut{0%{opacity:1}99%{opacity:0.01}100%{opacity:0}}
-
-			@media screen and (orientation:portrait)
-				{
-				.gui_gamestatus{position:fixed;top:10px}
-				}
 
 			/* iPods and other very small devices (portrait and landscape)(very small) */
 			@media screen and (min-width: 0) and (max-width: 320px)
@@ -110,7 +105,7 @@
 					if (thinking==false)
 						{
 						// HIDING THE GAME STATUS
-						document.getElementsByClassName("gui_gamestatus")[0].style.display = "none";
+						//document.getElementsByClassName("gui_gamestatus")[0].style.display = "none";
 
 						// CREATING NEW CHESS GAME
 						game = new Chess();
