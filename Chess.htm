@@ -331,6 +331,7 @@
 					document.getElementsByClassName("gui_newgame")[0].addEventListener("touchstart",function(event){newGame()});
 					document.getElementsByClassName("gui_savegame")[0].addEventListener("touchstart",function(event){saveGame()});
 					document.getElementsByClassName("gui_loadgame")[0].addEventListener("touchstart",function(event){if(thinking==false){document.getElementsByClassName("gui_file")[0].click()}});
+					document.getElementById("gui_versus").addEventListener("touchstart",function(event){if(thinking==false){if(vsCPU==true){document.getElementById("gui_versus").className="gui_versus gui_versus_human";vsCPU=false;newGame()}else{document.getElementById("gui_versus").className="gui_versus gui_versus_cpu";vsCPU=true;newGame()}}});
 					}
 					else
 					{
@@ -338,24 +339,7 @@
 					document.getElementsByClassName("gui_newgame")[0].addEventListener("click",function(event){newGame()});
 					document.getElementsByClassName("gui_savegame")[0].addEventListener("click",function(event){saveGame()});
 					document.getElementsByClassName("gui_loadgame")[0].addEventListener("click",function(event){if(thinking==false){document.getElementsByClassName("gui_file")[0].click()}});
-					document.getElementById("gui_versus").addEventListener("click",function(event)
-						{
-						if(thinking==false)
-							{
-							if (vsCPU==true)
-								{
-								document.getElementById("gui_versus").className = "gui_versus gui_versus_human";
-								vsCPU = false;
-								newGame();
-								}
-								else
-								{
-								document.getElementById("gui_versus").className = "gui_versus gui_versus_cpu";
-								vsCPU = true;
-								newGame();
-								}
-							}
-						});
+					document.getElementById("gui_versus").addEventListener("click",function(event){if(thinking==false){if(vsCPU==true){document.getElementById("gui_versus").className="gui_versus gui_versus_human";vsCPU=false;newGame()}else{document.getElementById("gui_versus").className="gui_versus gui_versus_cpu";vsCPU=true;newGame()}}});
 					}
 
 				// UPDATING THE ABOUT BOX TEXT
