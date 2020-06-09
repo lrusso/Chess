@@ -37,6 +37,8 @@ var STRING_TITLE;
 var STRING_CHECK;
 var STRING_AIWINS;
 var STRING_HUMANWINS;
+var STRING_WHITEWINS;
+var STRING_BLACKWINS;
 var STRING_THINKING;
 var STRING_ABOUT;
 
@@ -48,6 +50,8 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_CHECK = "JAQUE";
 	STRING_AIWINS = "LA CPU GAN&Oacute;";
 	STRING_HUMANWINS = "EL JUGADOR GAN&Oacute;";
+	STRING_WHITEWINS = "BLANCAS GANAN";
+	STRING_BLACKWINS = "NEGRAS GANAN";
 	STRING_THINKING = "PENSANDO...";
 	STRING_ABOUT = "Dise&ntilde;ado por www.lrusso.com";
 	}
@@ -58,6 +62,8 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_AIWINS = "CPU WINS";
 	STRING_HUMANWINS = "HUMAN WINS";
 	STRING_THINKING = "THINKING...";
+	STRING_WHITEWINS = "WHITE WINS";
+	STRING_BLACKWINS = "BLACK WINS";
 	STRING_ABOUT = "Designed by www.lrusso.com";
 	}
 
@@ -75,6 +81,7 @@ function showLabel(myTempTitle)
 	}
 
 var thinking = false;
+var vsCPU = true;
 
 var Chess = function(fen) {
 
@@ -1718,9 +1725,27 @@ if (typeof define !== "undefined") define( function () { return Chess;  });
 
 var onDragStart = function (source, piece, position, orientation)
     {
-    if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1 || thinking==true)
+    if (vsCPU==true)
         {
-        return false;
+        if (game.in_checkmate() === true || game.in_draw() === true || piece.search(/^b/) !== -1 || thinking==true)
+            {
+            return false;
+            }
+        }
+    else
+        {
+        if (game.in_checkmate() === true || game.in_draw() === true)
+            {
+            return false;
+            }
+        if (game.turn()==='b' && piece.search(/^w/) !== -1)
+            {
+            return false;
+            }
+        if (game.turn()==='w' && piece.search(/^b/) !== -1)
+            {
+            return false;
+            }
         }
 
     var moves = game.moves({square:source,verbose:true});
@@ -1736,14 +1761,21 @@ var onDrop = function (source, target)
     var move = game.move({from:source,to:target,promotion:"q"});
     removeGreySquares();if (move === null){return "snapback"}
 
-    document.getElementsByClassName("gui_gamestatus_label")[0].innerHTML = STRING_THINKING;
-    document.getElementsByClassName("gui_gamestatus")[0].style.display = "block";
-
-    setTimeout(function()
+    if (vsCPU==true)
         {
-        thinking=true;
-        makeBestMove()
-        },20);
+        document.getElementsByClassName("gui_gamestatus_label")[0].innerHTML = STRING_THINKING;
+        document.getElementsByClassName("gui_gamestatus")[0].style.display = "block";
+
+        setTimeout(function()
+            {
+            thinking=true;
+            makeBestMove()
+            },20);
+        }
+        else
+        {
+        checkGameStatus();
+        }
     };
 
 var onSnapEnd = function ()
@@ -1795,11 +1827,25 @@ function checkGameStatus()
             {
             if (game.turn()=="b")
                 {
-                showLabel(STRING_HUMANWINS);
+                if (vsCPU==true)
+                    {
+                    showLabel(STRING_HUMANWINS);
+                    }
+                    else
+                    {
+                    showLabel(STRING_WHITEWINS);
+                    }
                 }
                 else
                 {
-                showLabel(STRING_AIWINS);
+                if (vsCPU==true)
+                    {
+                    showLabel(STRING_AIWINS);
+                    }
+                    else
+                    {
+                    showLabel(STRING_BLACKWINS);
+                    }
                 }
             }
         else if (game.in_check())
