@@ -33,14 +33,15 @@
  * https://github.com/jhlywa/chess.js/blob/master/LICENSE
  */
 
-var STRING_TITLE;
-var STRING_CHECK;
-var STRING_AIWINS;
-var STRING_HUMANWINS;
-var STRING_WHITEWINS;
-var STRING_BLACKWINS;
-var STRING_THINKING;
-var STRING_ABOUT;
+var STRING_TITLE = "";
+var STRING_CHECK = "";
+var STRING_AIWINS = "";
+var STRING_HUMANWINS = "";
+var STRING_WHITEWINS = "";
+var STRING_BLACKWINS = "";
+var STRING_THINKING = "";
+var STRING_SAVED = "";
+var STRING_ABOUT = "";
 
 var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
@@ -53,6 +54,7 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_WHITEWINS = "BLANCAS GANAN";
 	STRING_BLACKWINS = "NEGRAS GANAN";
 	STRING_THINKING = "PENSANDO...";
+	STRING_SAVED = "Archivo guardado en Descargas.";
 	STRING_ABOUT = "Dise&ntilde;ado por www.lrusso.com";
 	}
 	else
@@ -64,6 +66,7 @@ if (userLanguage.substring(0,2)=="es")
 	STRING_THINKING = "THINKING...";
 	STRING_WHITEWINS = "WHITE WINS";
 	STRING_BLACKWINS = "BLACK WINS";
+	STRING_SAVED = "File saved in Downloads.";
 	STRING_ABOUT = "Designed by www.lrusso.com";
 	}
 
