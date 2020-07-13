@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Base64;
 import android.webkit.JavascriptInterface;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -117,8 +116,6 @@ public class JavaScriptInterface {
             fOut.write(pdfAsBytes);
             fOut.flush();
             fOut.close();
-
-            Toast.makeText(context, context.getResources().getString(R.string.gameSaved), Toast.LENGTH_LONG).show();
             }
             catch(Exception e)
             {
