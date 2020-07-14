@@ -204,14 +204,25 @@
 
 			function download_URL(data, fileName)
 				{
-				var a;
-				a = document.createElement("a");
-				a.href = data;
-				a.download = fileName;
-				document.body.appendChild(a);
-				a.style = "display: none";
-				a.click();
-				a.remove();
+				var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+				if (iOS==true)
+					{
+					// IOS REQUIRES THAT THE BLOB URL MUST BE OPENED IN A NEW TAB
+					// BECAUSE OTHERWISE THE CURRENT GAME/WINDOW/LOCATION WILL BE LOST.
+					window.open(data, "_blank");
+					}
+					else
+					{
+					var a;
+					a = document.createElement("a");
+					a.href = data;
+					a.download = fileName;
+					document.body.appendChild(a);
+					a.style = "display: none";
+					a.click();
+					a.remove();
+					}
 				}
 
 			function loadGame(files)
