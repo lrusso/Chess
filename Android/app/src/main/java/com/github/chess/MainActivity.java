@@ -158,6 +158,24 @@ public class MainActivity extends Activity
             }
         }
 
+    @Override public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults)
+        {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        try
+            {
+            if (requestCode==123)
+                {
+                if (!(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED))
+                    {
+                    System.exit(0);
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+            }
+        }
+
     public String getFileName(Uri uri)
         {
         String result = null;
