@@ -350,18 +350,6 @@
 					document.getElementById("gui_versus").addEventListener("click",function(event){if(thinking==false){if(vsCPU==true){document.getElementById("gui_versus").className="gui_versus gui_versus_human";vsCPU=false;newGame()}else{document.getElementById("gui_versus").className="gui_versus gui_versus_cpu";vsCPU=true;newGame()}}});
 					}
 
-				// CHECKING IF THE USER IS USING IOS.
-				var usingiOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-				if (usingiOS == true)
-					{
-					// THE WEBVIEW PROVIDED IN IOS DOESN'T ALLOW THE USER TO DOWNLOAD A BLOB URL WITH A FILENAME.
-					// THAT'S WHY THE LOAD/SAVE GAME FEATURE IS DISABLED IN IOS.
-					document.getElementsByClassName("gui_savegame")[0].style.display = "none";
-					document.getElementsByClassName("gui_savegame_shadow")[0].style.display = "none";
-					document.getElementsByClassName("gui_loadgame")[0].style.display = "none";
-					document.getElementsByClassName("gui_loadgame_shadow")[0].style.display = "none";
-					}
-
 				// UPDATING THE ABOUT BOX TEXT
 				document.getElementById("about").innerHTML = STRING_ABOUT;
 
