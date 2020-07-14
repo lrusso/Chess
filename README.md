@@ -1,6 +1,6 @@
 # Chess
 
-Chess game developed in JavaScript.
+Chess game developed as a Web and as a native Android App.
 
 ![alt screenshot](https://raw.githubusercontent.com/lrusso/Chess/master/Chess.png)
 
