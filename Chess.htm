@@ -210,7 +210,10 @@
 					{
 					// IOS REQUIRES THAT THE BLOB URL MUST BE OPENED IN A NEW TAB
 					// BECAUSE OTHERWISE THE CURRENT GAME/WINDOW/LOCATION WILL BE LOST.
-					window.open(data, "_blank");
+					setTimeout(function()
+						{
+						window.open(data, "_blank");
+						}, 200);
 					}
 					else
 					{
