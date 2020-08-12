@@ -1,4 +1,4 @@
-package com.github.chess;
+package ar.com.lrusso.chess;
 
 import android.os.Environment;
 import android.content.Context;
