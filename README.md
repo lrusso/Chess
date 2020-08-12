@@ -10,7 +10,7 @@ https://lrusso.github.io/Chess/Chess.htm
 
 ## Android version:
 
-https://lrusso.github.io/Chess/Chess.apk
+https://play.google.com/store/apps/details?id=ar.com.lrusso.chess
 
 ## Based on the work of:
 
