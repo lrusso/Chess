@@ -329,6 +329,7 @@
 				// DISABLING THE TOUCHMOVE EVENT (FOR SAFARI IN IOS)
 				document.addEventListener("touchmove",function(e){e.preventDefault()},{passive:false});
 
+				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS ON AN ICON
 				document.getElementsByClassName("gui_newgame")[0].addEventListener("click",function(event){newGame()});
 				document.getElementsByClassName("gui_savegame")[0].addEventListener("click",function(event){saveGame()});
 				document.getElementsByClassName("gui_loadgame")[0].addEventListener("click",function(event){if(thinking==false){document.getElementsByClassName("gui_file")[0].click()}});
