@@ -8,10 +8,6 @@ Chess game developed as a Web and as a native Android App.
 
 https://lrusso.github.io/Chess/Chess.htm
 
-## Android version:
-
-https://play.google.com/store/apps/details?id=ar.com.lrusso.chess
-
 ## Based on the work of:
 
 https://jsfiddle.net/q76uzxwe/1/
