@@ -2,6 +2,8 @@ const filesToCache = [
 	"Chess.htm",
 	"Chess.json",
 	"Chess.png",
+	"ChessES.htm",
+	"ChessES.json",
 	"ChessFavIcon_16x16.png",
 	"ChessFavIcon_192x192.png",
 	"ChessFavIcon_512x512.png"
