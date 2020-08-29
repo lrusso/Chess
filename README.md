@@ -8,7 +8,7 @@ Chess game developed in JavaScript.
 
 https://lrusso.github.io/Chess/Chess.htm
 
-## Web version with a spanish WPA:
+## Web version with a spanish manifest:
 
 https://lrusso.github.io/Chess/ChessES.htm
 
