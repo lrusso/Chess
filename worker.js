@@ -6,7 +6,8 @@ const filesToCache = [
 	"ChessES.json",
 	"ChessFavIcon_16x16.png",
 	"ChessFavIcon_192x192.png",
-	"ChessFavIcon_512x512.png"
+	"ChessFavIcon_512x512.png",
+	"ChessShare.png"
 ];
 
 const staticCacheName = "chess-v1";
